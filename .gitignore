@@ -1,3 +1,5 @@
 /.metadata/
 
-application.properties/
+application.properties
+
+.class
