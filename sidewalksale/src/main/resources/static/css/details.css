@@ -17,12 +17,21 @@
 
 .detailImg {
 	height: 300px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .detailBody {
 	text-align: left;
 	padding-left: 20px;
-	padding-right: 20px
+	padding-right: 20px;
+}
+
+.detailBody p:nth-of-type(4) {
+	background-color: #cccac8;
+	height: 174px;
+	overflow: scroll;
+	border-radius: 5px;
+	padding: 5px;
 }
 /* card on the right */
 .sellerCard {
@@ -33,4 +42,14 @@
 	border-top-style: hidden;
 	border-right-style: hidden;
 	border-bottom-style: hidden;
+}
+
+input {
+	width: 250px;
+}
+
+.contact {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }

@@ -10,6 +10,7 @@
 <title>Details page page</title>
 <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
 <link rel="stylesheet" type="text/css" href="/css/details.css">
+
 </head>
 <body>
 	<div class="header">
@@ -35,9 +36,38 @@
 			</div>
 			<div class="sellerCard">
 				<p>Sold By: </p>
-				<p>Location</p>
-				<p>Seller Rating</p>
-				<p><a href="/sidewalk-sale/contact">Contact this seller</a></p>
+				<p>Location:</p>
+				<p>Seller Rating:</p>
+				<div class="contact">
+					<h4>Contact The seller</h4>
+			 		<form:form method="POST" modelAttribute="contact" action="/sidewalk-sale/contact">
+				 		<table class="contact">
+				 			<tr>
+				 				<td>
+				 					<form:input path="name" placeholder="FULL NAME" />
+				 					<form:errors path="name"/>
+				 				</td>
+				 			</tr>
+				 			<tr>
+				 				<td>
+				 					<form:input path="email" placeholder="EMAIL"/>
+				 				</td>
+				 			</tr>
+				 			<tr>
+				 				<td>
+				 					<form:input path="subject" placeholder="SUBJECT"/>
+				 				</td>
+				 			</tr>
+				 			<tr>
+				 				<td>
+				 					<form:textarea path="content" rows="5" cols="29" placeholder="Message: No more than 200 characters" />
+				 				</td>
+				 			</tr>
+				 		</table>
+				 		<button type="submit" class="yellowButton">Send</button>
+				 		<p><c:out value="${msg }"/></p>
+				 	</form:form>
+			 	</div>
 			</div>
 		</div>
 	</div>

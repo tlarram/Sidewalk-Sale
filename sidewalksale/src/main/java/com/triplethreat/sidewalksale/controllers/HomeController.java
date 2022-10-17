@@ -17,8 +17,4 @@ public class HomeController {
 		return "register.jsp";
 	}
 	
-	@GetMapping("/sidewalk-sale/details")
-	public String details() {
-		return "details.jsp";
-	}
 }

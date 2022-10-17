@@ -16,10 +16,10 @@ public class ContactController {
 	@Autowired
 	private MailService mailService;
 	
-	@GetMapping("/sidewalk-sale/contact")
+	@GetMapping("/sidewalk-sale/details")
 	public String showContactForm(ModelMap modelMap) {
 		modelMap.put("contact", new Contact());
-		return "contact.jsp";
+		return "details.jsp";
 	}
 	
 	@PostMapping("/sidewalk-sale/contact")
@@ -35,6 +35,6 @@ public class ContactController {
 		} catch (Exception e) {
 			modelMap.put("msg", e.getMessage());
 		}
-		return "contactSuccess.jsp";
+		return "details.jsp";
 	}
 }
