@@ -37,11 +37,11 @@ public class Category {
     private Date updatedAt;
   @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "categories_items", 
+        name = "categories_products", 
         joinColumns = @JoinColumn(name = "category_id"), 
-        inverseJoinColumns = @JoinColumn(name = "item_id")
+        inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<Item> items;
+    private List<Product> items;
   
 public Category() {
       
@@ -79,13 +79,16 @@ public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
 }
 
-public List<Item> getItems() {
+public List<Product> getItems() {
 	return items;
 }
 
-public void setItems(List<Item> items) {
+public void setItems(List<Product> items) {
 	this.items = items;
 }
+
+
+
 	
 
 }
