@@ -29,6 +29,7 @@ public class WebSecurityConfig {
 	            .and()
 	        .formLogin()
 	            .loginPage("/login")
+	            .usernameParameter("email")
 	            .permitAll()
 	            .and()
 	        .logout()
