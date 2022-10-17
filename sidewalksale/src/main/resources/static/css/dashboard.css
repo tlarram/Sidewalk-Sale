@@ -1,0 +1,159 @@
+@charset "UTF-8";
+body {
+	margin: auto;
+	background-color: #B2AFAC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* colors */
+.dandelionBack {
+	background-color: #FFCE2B;
+}
+.ashBack {
+	background-color: #B2AFAC;
+}
+.dustBack {
+	background-color: #959492;
+}
+.carbonBack {
+	background-color: #42413D;
+}
+.whiteBack {
+	background-color: white;
+}
+
+.dandelion {
+	color: #FFCE2B;
+}
+.ash {
+	color: #B2AFAC;
+}
+.dust {
+	color: #959492;
+}
+.carbon {
+	color: #42413D;
+}
+.white {
+	color: white;
+}
+
+
+/* header */
+.header {
+	height: 90px;
+	/* background-color: #FFCE2B; */
+	background-color: #B2AFAC;
+	text-align: center;
+	align-items: center;
+ 	display: flex;
+	justify-content: space-evenly;
+}
+
+
+/* button  */
+button {
+	background-color: #42413D;
+	border: none;
+	height: 40px;
+	padding: 10px;
+	border-radius: 20px;
+	color: white;
+	border-bottom: 2px solid #42413D;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	transition: 0.2s;
+}
+
+button:hover {
+	background-color: #FFCE2B; 
+	color: white;
+	/* background-color: #959492; */
+}
+
+button:active {
+  background-color: white;
+  color: #FFCE2B;
+  transform: translateY(4px);
+}
+
+/* body */
+.container {
+	padding:15px;
+	text-align: center;
+}
+
+.container:before {
+	content: "";
+	display: block;
+	margin: 0 auto;
+	width: 90%;
+	border-bottom: 1px solid white;
+
+}
+
+.description {
+	text-align: center;
+	margin-top: 30px;
+	margin-left: 9%;
+	width: 80%;
+	border: 1px solid black;
+	background-color: white;
+	opacity: .7;
+	padding: 5px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.items {
+	margin-top: 30px;
+	margin-left: 9%;
+	background-color: lightGrey;
+	text-align: center;
+	width: 79%;
+	height: 500px;
+	padding: 10px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap; 
+	overflow: scroll;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* image card */
+img {
+	height: 200px;
+	border-radius: 8px;
+}
+
+.itemCard {
+	width: 200px;
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	margin-top: 30px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.itemCard:hover {
+	transform: scale(1.2);
+	transition: 0.2s;
+}
+
+.yellowButton {
+	background-color: #FFCE2B;
+	height: 30px;
+	border-radius: 8px;
+	border-bottom: 2px solid #FFCE2B;
+}
+
+.yellowButton:hover {
+	background-color: white;
+	color: #42413D;
+}
+
+.yellowButton:active {
+  background-color: #B2AFAC;
+  color: white;
+  transform: translateY(4px);
+}
+
