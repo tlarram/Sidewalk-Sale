@@ -1,3 +1,5 @@
 /.metadata/
 .pom.xml
 /application.properties
+application.properties/
+
