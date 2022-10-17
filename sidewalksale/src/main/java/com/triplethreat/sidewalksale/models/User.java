@@ -16,19 +16,22 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
 public class User {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
+    // NEW
+    @Size(min=3)
     private String username;
+    @Size(min=5)
     private String password;
     @Transient
     private String passwordConfirmation;
-    @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -36,7 +39,8 @@ public class User {
         name = "users_roles", 
         joinColumns = @JoinColumn(name = "user_id"), 
         inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
+    private List <Role> roles;
+
     
     public User() {
     }
