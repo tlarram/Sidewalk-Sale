@@ -27,7 +27,9 @@
 	    </div>
 		<div class="items">
 			<div class="itemCard">
-				<img alt="couch" src="<c:url value="image/couch.jpeg"/>">
+				<a href="/sidewalk-sale/details">
+					<img alt="couch" src="<c:url value="image/couch.jpeg"/>">
+				</a>
 				<p>Couch</p>
 				<p>$300</p>
 				<button class="yellowButton">Save</button>
