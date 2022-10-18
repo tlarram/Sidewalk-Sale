@@ -3,7 +3,6 @@ package com.triplethreat.sidewalksale.models;
 import java.util.Date;
 import java.util.List;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -38,14 +35,6 @@ public class Product {
 	private String description;
 	
 	@NotNull
-	@Size(min=3, max=200, message="Condition is required")
-	private String condition;
-	
-	@NotNull
-	@Size(min=3, max=200, message="Image is required")
-	private String image;
-	
-	@NotNull
 	@Min(value = 0, message="Price is required")
 	private Double price;
 	
@@ -62,94 +51,58 @@ public class Product {
 	        joinColumns = @JoinColumn (name = "product_id"), 
 	        inverseJoinColumns = @JoinColumn(name = "category_id")
 	    )
-	    private List<Category> tags;
+	    private List<Category> categories;
 	 
 public Product(){
 	
 }
 
-
-public Product( String name,String description, Double price) {
-	this.name = name;
-	this.description = description;
-	this.price = price;
-}
-
-
-@PrePersist
-protected void onCreate(){
-    this.createdAt = new Date();
-}
-@PreUpdate
-protected void onUpdate(){
-    this.updatedAt = new Date();
-}
 public Long getId() {
 	return id;
 }
+
 public void setId(Long id) {
 	this.id = id;
 }
+
 public String getName() {
 	return name;
 }
+
 public void setName(String name) {
 	this.name = name;
 }
+
 public String getDescription() {
 	return description;
 }
+
 public void setDescription(String description) {
 	this.description = description;
 }
+
 public Double getPrice() {
 	return price;
 }
+
 public void setPrice(Double price) {
 	this.price = price;
 }
+
 public Date getCreatedAt() {
 	return createdAt;
 }
+
 public void setCreatedAt(Date createdAt) {
 	this.createdAt = createdAt;
 }
+
 public Date getUpdatedAt() {
 	return updatedAt;
 }
+
 public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
 }
-
-
-public String getCondition() {
-	return condition;
-}
-
-
-public void setCondition(String condition) {
-	this.condition = condition;
-}
-
-
-public String getImage() {
-	return image;
-}
-
-
-public void setImage(String image) {
-	this.image = image;
-}
-
-
-public List<Category> getTags() {
-	return tags;
-}
-
-
-public void setTags(List<Category> tags) {
-	this.tags = tags;
-}
-
 
 }
