@@ -1,5 +1,6 @@
 package com.triplethreat.sidewalksale.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,18 +26,14 @@ public class HomeController {
 	private CategoryService categoryServ;
 	
 	
-	@GetMapping("/dashboard")
-    public String dashboard(HttpSession session,Model model) {
-		if(session.getAttribute("userId")==null) {
-			return "redirect:/logout";
-		}
-		
-		Long userId = (Long) session.getAttribute("userId");
-		model.addAttribute("user", userServ.findById(userId));
+	@GetMapping(value={"/", "/sidewalk-sale"})
+    public String dashboard(HttpSession session,Model model, Principal principal) {
+        String email = principal.getName();
+        model.addAttribute("currentUser", userServ.findByEmail(email));
 		List<Product> products= productServ.allProducts();
 		List<Category> categories= categoryServ.allCategories();
 		model.addAttribute("products", products);
 		model.addAttribute("categories", categories);
-    	return "dashboard.jsp";
+    	return "homePage.jsp";
     }
 }

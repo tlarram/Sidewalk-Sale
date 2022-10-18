@@ -18,7 +18,7 @@ public class GeoIPService {
 	private DatabaseReader dbReader;
 	
 	 public GeoIPService() throws IOException {
-	        File database = new File("C:\\Users\\tlarr\\Desktop\\GeoLite2-City.mmdb");
+	        File database = new File("C:\\Users\\samue\\OneDrive\\Desktop\\STSOCT2022\\GeoLocationbd\\GeoLite2-City.mmdb");
 	        dbReader = new DatabaseReader.Builder(database).build();
 	    }
 	 public GeoIP getLocation(String ip) 

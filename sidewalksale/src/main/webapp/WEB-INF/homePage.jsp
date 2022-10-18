@@ -21,10 +21,17 @@
 	</div>
 	<h1>Welcome Page <c:out value="${currentUser.email}"></c:out></h1>
     
-    <form id="logoutForm" method="POST" action="/logout">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <input type="submit" value="Logout!" />
-    </form>
+	<c:if test="${userLocation == null}">
+		<div>
+			<h3>Sidewalk Sale requires location to show you items listed in your area.
+			Please click Accept to continue. Thank you</h3>
+			<form id="ipForm" action="/location" method="POST">
+        		<input type="hidden" name = "ipAddress" id = "ip"/>
+        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        		<input type="submit" name="submit" value="Accept" /> 
+    		</form>
+		</div>
+	</c:if>
 	<div class="container">
     	<div class="description">
 	    	<p>Welcome to <strong>Sidewalk Sale</strong>. I'd like this area to welcome the user by their first name if logged in 
@@ -76,7 +83,19 @@
 		</div>
 		
     </div>
-    
+    <script src
+   ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+  
+<script type="text/javascript">
+    $(document).ready (function () {
+        $.getJSON( "https://api.ipify.org?format=json", 
+          function( data ) {
+             console.log(data);
+             $("#ip").val(data.ip) ;
+        });
+    });
+</script>
     
 </body>
 </html>
