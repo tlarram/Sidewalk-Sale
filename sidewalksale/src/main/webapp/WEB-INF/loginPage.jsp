@@ -41,18 +41,5 @@
 			<a href="/registration"><button class="createButton">Create an Account</button></a>
 		    </div>
 	  </div>
-
-	  <form method="POST" action="/login">
-        <p>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email"/>
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"/>
-        </p>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <input type="submit" value="Login!"/>
-    </form>
 </body>
 </html>
