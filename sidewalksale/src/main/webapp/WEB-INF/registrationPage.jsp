@@ -24,24 +24,19 @@
 		    <p><form:errors path="user.*"/></p>
 		    <form:form method="POST" action="/registration" modelAttribute="user">
 		     	<p>
-		            <form:label path="firstName">First Name:</form:label>
-		            <form:input path="firstName"/>
+		            <form:input path="firstName" placeholder="FIRST NAME"/>
 		        </p>
 		        <p>
-		            <form:label path="lastName">Last Name:</form:label>
-		            <form:input path="lastName"/>
+		            <form:input path="lastName" placeholder="LAST NAME"/>
 		        </p>
 		        <p>
-		            <form:label path="email">Email:</form:label>
-		            <form:input path="email"/>
+		            <form:input path="email" placeholder="EMAIL"/>
 		        </p>
 		        <p>
-		            <form:label path="password">Password:</form:label>
-		            <form:password path="password"/>
+		            <form:password path="password" placeholder="PASSWORD"/>
 		        </p>
 		        <p>
-		            <form:label path="passwordConfirmation">Password Confirmation:</form:label>
-		            <form:password path="passwordConfirmation"/>
+		            <form:password path="passwordConfirmation" placeholder="CONFRIM PASSWORD"/>
 		        </p>
 		        <!-- <input type="submit" value="Register!"/> -->
 		        <button type="submit" class="createButton">CREATE ACCOUNT</button>

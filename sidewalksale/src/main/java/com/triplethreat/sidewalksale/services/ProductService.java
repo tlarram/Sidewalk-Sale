@@ -17,21 +17,27 @@ public class ProductService {
 		this.productRepo= productRepo;
 	}
 	
+	//FIND ALL
 	public List<Product> allProducts(){
 		return productRepo.findAll();
 	}
+	
+	//CREATE
 	public Product addProduct(Product product) {
 		return productRepo.save(product);
 	}
 	
+	//UPDATE
 	public Product updateProduct(Product product) {
 		return productRepo.save(product);
 	}
 	
+	//DELETE
 	public void deleteProduct(Product product) {
 		productRepo.delete(product);
 	}
 	
+	//FIND ONE
 	public Product findById(Long id) {
 		Optional<Product> optionalProduct = productRepo.findById(id);
 		if(optionalProduct.isPresent()) {

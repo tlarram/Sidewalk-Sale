@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -39,6 +40,17 @@ public class Product {
 	@Min(value = 0, message="Price is required")
 	private Double price;
 	
+	//for photos
+	@Column(nullable = true, length = 64)
+    private String photos;
+	
+	@Transient
+    public String getPhotosImagePath() {
+        if (photos == null || id == null) return null;
+         
+        return "/user-photos/" + id + "/" + photos;
+    }
+	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -56,7 +68,7 @@ public class Product {
 	 
 	 @ManyToMany(fetch = FetchType.LAZY)
 	    @JoinTable(
-	        name = "products", 
+	        name = "products", //we need to change this table name?
 	        joinColumns = @JoinColumn(name = "user_id"), 
 	        inverseJoinColumns = @JoinColumn(name = "product_id")
 	    )
@@ -142,5 +154,15 @@ public Date getUpdatedAt() {
 public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
 }
+
+public String getPhotos() {
+	return photos;
+}
+
+public void setPhotos(String photos) {
+	this.photos = photos;
+}
+
+
 
 }

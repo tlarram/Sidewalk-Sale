@@ -14,32 +14,34 @@
 <body>
     <div class="header">
 		<a href="/sidewalk-sale"><button>ON SALE NOW</button></a>
-		<a href="/#"><button>ADD LISTING</button></a>
+		<a href="/sidewalk-sale/add-item"><button>ADD LISTING</button></a>
 		<h2 style="font-size: 35px">Sidewalk.<span class="dandelion"><em>Sale</em></span></h2>
 		<a href="/#"><button>SAVED LISTINGS</button></a>
 		<a href="/login"><button>ACCOUNT</button></a>
 	</div>
-	<h1>Welcome Page <c:out value="${currentUser.email}"></c:out></h1>
-    
-	<c:if test="${userLocation == null}">
-		<div>
-			<h3>Sidewalk Sale requires location to show you items listed in your area.
-			Please click Accept to continue. Thank you</h3>
-			<form id="ipForm" action="/location" method="POST">
-        		<input type="hidden" name = "ipAddress" id = "ip"/>
-        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        		<input type="submit" name="submit" value="Accept" /> 
-    		</form>
-		</div>
-	</c:if>
+	
 	<div class="container">
     	<div class="description">
-	    	<p>Welcome to <strong>Sidewalk Sale</strong>. I'd like this area to welcome the user by their first name if logged in 
-	    	and display a logout button if they're logged in. otherwise, show: The items you are seeing are available in your area</p>
-	    	<form id="logoutForm" method="POST" action="/logout">
-       			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        		<input type="submit" value="Logout!" />
-    		</form>
+	    	<h3>Welcome, <c:out value="${currentUser.email}"></c:out></h3>
+			<c:if test="${userLocation == null}">
+				<div>
+					<p><strong>Sidewalk Sale</strong> requires location to show you items listed in your area.
+					Please click Accept to continue. Thank you</p>
+					<div class="accept">
+						<form id="ipForm" action="/location" method="POST">
+			        		<input type="hidden" name = "ipAddress" id = "ip"/>
+			        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			        		<button type="submit" class="yellowButton">Accept</button>
+			        		<!-- <input type="submit" name="submit" class="yellowButton" value="Accept" />  -->
+			    		</form>
+				    	<form id="logoutForm" method="POST" action="/logout">
+			       			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			        		<button type="submit">Logout</button>
+			    		</form>
+		    		</div>
+				</div>
+			</c:if>
+	    	
 	    </div>
 		<div class="items">
 			<div class="itemCard">
