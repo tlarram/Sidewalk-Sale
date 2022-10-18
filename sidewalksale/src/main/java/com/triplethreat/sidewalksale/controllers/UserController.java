@@ -2,9 +2,9 @@ package com.triplethreat.sidewalksale.controllers;
 
 import java.security.Principal;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,10 +19,11 @@ import com.triplethreat.sidewalksale.validator.UserValidator;
 
 @Controller
 public class UserController {
-	 private UserService userService;
+	@Autowired
+	private UserService userService;
 	    
-	// NEW
-	    private UserValidator userValidator;
+	@Autowired
+	private UserValidator userValidator;
 	    
 	    // NEW
 	    public UserController(UserService userService, UserValidator userValidator) {
@@ -57,7 +58,7 @@ public class UserController {
         }
         return "loginPage.jsp";
     }
-    @RequestMapping(value = {"/", "/home"})
+    @RequestMapping(value = {"/sidewalk-sale", "/home"})
     public String home(Principal principal, Model model) {
         String email = principal.getName();
         model.addAttribute("currentUser", userService.findByEmail(email));
@@ -70,4 +71,6 @@ public class UserController {
         model.addAttribute("currentUser", userService.findByEmail(email));
         return "adminPage.jsp";
     }
+    
+    
 }
