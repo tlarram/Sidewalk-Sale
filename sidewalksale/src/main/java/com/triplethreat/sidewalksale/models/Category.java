@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,17 +37,39 @@ public class Category {
    
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-  @ManyToMany(fetch = FetchType.LAZY)
+  
+	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "categories_products", 
         joinColumns = @JoinColumn(name = "category_id"), 
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<Product> items;
+    private List<Product> products;
   
+  public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 public Category() {
       
   }
+  
+  public Category(String name) {
+	this.name = name;
+}
+
+@PrePersist
+  protected void onCreate(){
+      this.createdAt = new Date();
+  }
+  @PreUpdate
+  protected void onUpdate(){
+      this.updatedAt = new Date();
+}
 
 public Long getId() {
 	return id;
@@ -79,16 +103,6 @@ public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
 }
 
-public List<Product> getItems() {
-	return items;
-}
 
-public void setItems(List<Product> items) {
-	this.items = items;
-}
-
-
-
-	
 
 }

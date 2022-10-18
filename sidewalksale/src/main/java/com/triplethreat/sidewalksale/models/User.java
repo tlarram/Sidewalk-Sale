@@ -35,8 +35,8 @@ public class User {
     private String password;
     @Size(min=5)
     private String email;
-   @NotNull
-    private Boolean isSeller;
+//   @NotNull
+//    private Boolean isSeller;
 	@Transient
     private String passwordConfirmation;
     private Date createdAt;
@@ -77,12 +77,12 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Boolean getIsSeller() {
-		return isSeller;
-	}
-	public void setIsSeller(Boolean isSeller) {
-		this.isSeller = isSeller;
-	}
+//	public Boolean getIsSeller() {
+//		return isSeller;
+//	}
+//	public void setIsSeller(Boolean isSeller) {
+//		this.isSeller = isSeller;
+//	}
 	public String getPassword() {
         return password;
     }
