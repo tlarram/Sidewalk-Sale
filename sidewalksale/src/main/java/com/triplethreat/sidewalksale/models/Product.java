@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -53,6 +54,43 @@ public class Product {
 	    )
 	    private List<Category> categories;
 	 
+	 @ManyToMany(fetch = FetchType.LAZY)
+	    @JoinTable(
+	        name = "products", 
+	        joinColumns = @JoinColumn(name = "user_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "product_id")
+	    )
+	    private List<User> savedBy;
+	 
+	    @ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name="user_id")
+		private User seller;
+	    
+	    
+public List<Category> getCategories() {
+			return categories;
+		}
+
+		public void setCategories(List<Category> categories) {
+			this.categories = categories;
+		}
+
+		public List<User> getSavedBy() {
+			return savedBy;
+		}
+
+		public void setSavedBy(List<User> savedBy) {
+			this.savedBy = savedBy;
+		}
+
+		public User getSeller() {
+			return seller;
+		}
+
+		public void setSeller(User seller) {
+			this.seller = seller;
+		}
+
 public Product(){
 	
 }
