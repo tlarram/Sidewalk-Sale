@@ -48,11 +48,11 @@ public class Item {
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
-   
+    
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
 	
-	 @ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
 	    @JoinTable(
 	        name = "categories_items", 
 	        joinColumns = @JoinColumn (name = "item_id"), 
