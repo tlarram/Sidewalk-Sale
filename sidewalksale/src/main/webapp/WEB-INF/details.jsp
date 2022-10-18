@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/css/details.css">
 </head>
 <body>
+
 	<div class="header">
 		<a href="/sidewalk-sale"><button>ON SALE NOW</button></a>
 		<a href="/#"><button>ADD LISTING</button></a>
