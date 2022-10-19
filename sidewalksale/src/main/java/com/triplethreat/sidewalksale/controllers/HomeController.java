@@ -37,4 +37,12 @@ public class HomeController {
     	return "homePage.jsp";
     }
 	
+	@GetMapping("/soldbyme")
+	public String itemsSoldByUser(Model model, Principal principal) {
+		String email = principal.getName();
+        model.addAttribute("currentUser", userServ.findByEmail(email));
+		List<Product> products= productServ.allProducts();
+		model.addAttribute("products", products);
+		return "soldByUser.jsp";
+	}
 }
