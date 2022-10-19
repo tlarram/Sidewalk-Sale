@@ -13,11 +13,11 @@
 </head>
 <body>
 
-	<div class="header">
+	 <div class="header">
 		<a href="/sidewalk-sale"><button>ON SALE NOW</button></a>
-		<a href="/#"><button>ADD LISTING</button></a>
+		<a href="/sidewalk-sale/add-item"><button>ADD LISTING</button></a>
 		<h2 style="font-size: 35px">Sidewalk.<span class="dandelion"><em>Sale</em></span></h2>
-		<a href="/#"><button>SAVED LISTINGS</button></a>
+		<a href="/sidewalk-sale/saved-listings"><button>SAVED LISTINGS</button></a>
 		<a href="/login"><button>ACCOUNT</button></a>
 	</div>
 	<div class="container">

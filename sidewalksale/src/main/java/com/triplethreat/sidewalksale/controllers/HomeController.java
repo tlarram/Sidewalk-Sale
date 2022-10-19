@@ -42,4 +42,13 @@ public class HomeController {
     	return "homePage.jsp";
     }
 	
+	@GetMapping("/sidewalk-sale/saved-listings")
+    public String savedListings(HttpSession session,Model model, Principal principal) {
+        String email = principal.getName();
+        model.addAttribute("currentUser", userServ.findByEmail(email));
+		List<Product> savedProducts= productServ.allProducts();
+		model.addAttribute("savedProducts", savedProducts);
+    	return "savePage.jsp";
+    }
+	
 }

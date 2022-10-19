@@ -3,15 +3,20 @@ package com.triplethreat.sidewalksale.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.triplethreat.sidewalksale.models.Category;
 import com.triplethreat.sidewalksale.models.Product;
+import com.triplethreat.sidewalksale.models.User;
 import com.triplethreat.sidewalksale.repositories.ProductRepository;
 
 @Service
 public class ProductService {
 	private final ProductRepository productRepo;
+	
+	@Autowired
+	public UserService userServ;
 	
 	public ProductService(ProductRepository productRepo) {
 		this.productRepo= productRepo;
@@ -36,6 +41,7 @@ public class ProductService {
 	public void deleteProduct(Product product) {
 		productRepo.delete(product);
 	}
+	
 	
 	//FIND ONE
 	public Product findById(Long id) {
