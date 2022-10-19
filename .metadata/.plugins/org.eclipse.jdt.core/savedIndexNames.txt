@@ -49,7 +49,6 @@ INDEX VERSION 1.131+C:\Users\tlarr\Documents\GitHub\Sidewalk-Sale\.metadata\.plu
 921159838.index
 1633708291.index
 1923959503.index
-4101905132.index
 1631250939.index
 927503460.index
 69096217.index
@@ -64,7 +63,6 @@ INDEX VERSION 1.131+C:\Users\tlarr\Documents\GitHub\Sidewalk-Sale\.metadata\.plu
 3475367038.index
 2513777852.index
 1947536413.index
-410417017.index
 707597055.index
 283295022.index
 2421476009.index
