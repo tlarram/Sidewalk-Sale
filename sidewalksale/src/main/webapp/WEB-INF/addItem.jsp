@@ -18,7 +18,7 @@
 		<a href="/sidewalk-sale/add-item"><button>ADD LISTING</button></a>
 		<h2 style="font-size: 35px">Sidewalk.<span class="dandelion"><em>Sale</em></span></h2>
 		<a href="/sidewalk-sale/saved-listings"><button>SAVED LISTINGS</button></a>
-		<a href="/login"><button>ACCOUNT</button></a>
+		<a href="/soldbyme"><button>MY LISTINGS</button></a>
 	</div>
 	<div class="container">
 		<h2>Add your Item</h2>
