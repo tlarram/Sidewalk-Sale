@@ -17,7 +17,7 @@
 		<a href="/sidewalk-sale/add-item"><button>ADD LISTING</button></a>
 		<h2 style="font-size: 35px">Sidewalk.<span class="dandelion"><em>Sale</em></span></h2>
 		<a href="/sidewalk-sale/saved-listings"><button>SAVED LISTINGS</button></a>
-		<a href="/login"><button>ACCOUNT</button></a>
+		<a href="/soldbyme"><button>MY LISTINGS</button></a>
 	</div>
 	
 	<div class="container">
@@ -46,7 +46,7 @@
 		<div class="items">
 			<c:forEach var="products" items="${productList }">
 				<div class="itemCard">
-					<a href="/sidewalk-sale/details"><img src="${products.photosImagePath }"></a>
+					<a href="/sidewalk-sale/details/${products.id }"><img src="${products.photosImagePath }"></a>
 					<p>NAME: <c:out value="${products.name }"/></p>
 					<p>PRICE: <c:out value="${products.price }"/></p>
 					<p>DESCRIPTION: <c:out value="${products.description }"/></p>

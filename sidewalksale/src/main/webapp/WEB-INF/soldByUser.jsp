@@ -16,7 +16,7 @@
 		<a href="/sidewalk-sale/add-item"><button>ADD LISTING</button></a>
 		<h2 style="font-size: 35px">Sidewalk.<span class="dandelion"><em>Sale</em></span></h2>
 		<a href="/#"><button>SAVED LISTINGS</button></a>
-		<a href="/login"><button>ACCOUNT</button></a>
+		<a href="/soldbyme"><button>MY LISTINGS</button></a>
 	</div>
 	<c:forEach var="oneProduct" items="${products }">
 		<c:choose>
@@ -28,7 +28,10 @@
 				</a>
 				<p> <c:out value="${oneProduct.name}"/> </p>
 				<p><c:out value="${oneProduct.price}"/></p>
-				<button class="yellowButton">Delete Listing</button> //Add a delete Product route
+				<form action="/deletelisteditem/${oneProduct.id}" method="post">
+    				<input type="hidden" name="_method" value="delete">
+    				<input type="submit" value="Delete">
+				</form>
 			</div>
 			</div>
 			</c:when>

@@ -20,11 +20,11 @@ public class ContactController {
 	@Autowired
 	private MailService mailService;
 		
-	@GetMapping("/sidewalk-sale/details")
-	public String showContactForm(ModelMap modelMap) {
-		modelMap.put("contact", new Contact());
-		return "details.jsp";
-	}
+//	@GetMapping("/sidewalk-sale/details")
+//	public String showContactForm(ModelMap modelMap) {
+//		modelMap.put("contact", new Contact());
+//		return "details.jsp";
+//	}
 	
 	@PostMapping("/sidewalk-sale/contact")
 	public String sendEmail(@ModelAttribute("contact") Contact contact, BindingResult result, ModelMap modelMap) {

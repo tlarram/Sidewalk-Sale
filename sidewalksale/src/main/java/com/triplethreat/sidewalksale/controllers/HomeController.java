@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.triplethreat.sidewalksale.models.Category;
+import com.triplethreat.sidewalksale.models.Contact;
 import com.triplethreat.sidewalksale.models.Product;
 import com.triplethreat.sidewalksale.models.User;
 import com.triplethreat.sidewalksale.repositories.ProductRepository;
