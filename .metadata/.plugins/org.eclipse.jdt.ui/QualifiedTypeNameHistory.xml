@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="javax.validation.Validator"/>
     <fullyQualifiedTypeName name="org.springframework.validation.Validator"/>
-    <fullyQualifiedTypeName name="com.triplethreat.sidewalksale.models.User"/>
     <fullyQualifiedTypeName name="org.springframework.validation.Errors"/>
     <fullyQualifiedTypeName name="com.triplethreat.sidewalksale.validator.UserValidator"/>
     <fullyQualifiedTypeName name="javax.persistence.PreUpdate"/>
@@ -30,4 +29,9 @@
     <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.triplethreat.sidewalksale.models.User"/>
+    <fullyQualifiedTypeName name="com.triplethreat.sidewalksale.repositories.ProductRepository"/>
 </qualifiedTypeNameHistroy>

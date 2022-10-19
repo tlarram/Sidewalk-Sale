@@ -22,7 +22,7 @@
 	
 	<div class="container">
     	<div class="description">
-	    	<h3>Welcome, <c:out value="${currentUser.email}"></c:out></h3>
+	    	<h3>Welcome, <c:out value="${currentUser.firstName}"></c:out></h3>
 			<c:if test="${userLocation == null}">
 				<div>
 					<p><strong>Sidewalk Sale</strong> requires location to show you items listed in your area.
@@ -50,7 +50,12 @@
 					<p>NAME: <c:out value="${products.name }"/></p>
 					<p>PRICE: <c:out value="${products.price }"/></p>
 					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
+					<form action="/saved/${products.id }" method="post">
+					<input type="hidden" name="_method" value="put">
+					<input type="hidden" name="savedProducts" value="products">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<button type="submit" class="yellowButton">SAVE</button>
+					</form>
 				</div>
 			</c:forEach>
 		</div>
