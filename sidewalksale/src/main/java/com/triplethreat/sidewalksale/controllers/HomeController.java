@@ -8,7 +8,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.triplethreat.sidewalksale.models.Category;
 import com.triplethreat.sidewalksale.models.Product;
@@ -59,5 +61,12 @@ public class HomeController {
 		List<Product> products= productServ.allProducts();
 		model.addAttribute("products", products);
 		return "soldByUser.jsp";
+	}
+	
+	@DeleteMapping("/deletelisteditem/{id}")
+	public String deleteListedItem(@PathVariable("id")Long id) {
+		Product thisProd = productServ.findById(id);
+		productServ.deleteProduct(thisProd);
+		return"redirect:soldbyme";
 	}
 }
