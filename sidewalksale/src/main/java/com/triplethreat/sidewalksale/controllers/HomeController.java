@@ -36,4 +36,5 @@ public class HomeController {
 		model.addAttribute("categories", categories);
     	return "homePage.jsp";
     }
+	
 }
