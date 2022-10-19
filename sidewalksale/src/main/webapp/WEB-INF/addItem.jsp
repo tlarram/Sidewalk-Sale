@@ -36,7 +36,7 @@
 				<form:errors path="description" style="color:red"/>
 			</div>
 			<div>
-				<form:label path="photos">Photo: </form:label>
+				<form:label path="photos">Photo: *must be square. .png or .jpeg type</form:label>
 			</div>
 				<input type="file" name="image"  accept="image/png, image/jpeg"/>
 			<div>
