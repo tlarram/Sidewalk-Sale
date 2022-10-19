@@ -18,10 +18,10 @@
 		<a href="/#"><button>SAVED LISTINGS</button></a>
 		<a href="/soldbyme"><button>MY LISTINGS</button></a>
 	</div>
+<div class="items">
 	<c:forEach var="oneProduct" items="${products }">
 		<c:choose>
 			<c:when test="${oneProduct.seller.id == currentUser.id }">
-			<div class="items">
 			<div class="itemCard">
 				<a href="/sidewalk-sale/details/${oneProduct.id }">
 					<img alt="${oneProduct.name }" src="<c:url value="${oneProduct.photos}"/>">
@@ -33,9 +33,9 @@
     				<input type="submit" value="Delete">
 				</form>
 			</div>
-			</div>
 			</c:when>
 		</c:choose>
 	</c:forEach>
+</div>
 </body>
 </html>
