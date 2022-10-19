@@ -30,7 +30,12 @@ public class HomeController {
     public String dashboard(HttpSession session,Model model, Principal principal) {
         String email = principal.getName();
         model.addAttribute("currentUser", userServ.findByEmail(email));
+        //to find all products on home page
+        model.addAttribute("productList", productServ.allProducts());
 		List<Product> products= productServ.allProducts();
+		//checks for correct file path
+		products.forEach(p -> System.out.println(p.getPhotosImagePath()));
+		
 		List<Category> categories= categoryServ.allCategories();
 		model.addAttribute("products", products);
 		model.addAttribute("categories", categories);
