@@ -41,47 +41,18 @@
 		    		</div>
 				</div>
 			</c:if>
-	    	
 	    </div>
+	    
 		<div class="items">
-			<div class="itemCard">
-				<a href="/sidewalk-sale/details">
-					<img alt="couch" src="<c:url value="/image/couch.jpeg"/>">
-				</a>
-				<p>Couch</p>
-				<p>$300</p>
-				<button class="yellowButton">Save</button>
-			</div>
-			<div class="itemCard">
-					<img alt="lamp" src="<c:url value="/image/lamp.jpeg"/>">
-				<p>Lamp</p>
-				<p>$50</p>
-				<button class="yellowButton">Save</button>
-			</div>
-			<div class="itemCard">
-				<img alt="chair" src="<c:url value="/image/chair.jpeg"/>">
-				<p>Chair</p>
-				<p>$500</p>
-				<button class="yellowButton">Save</button>
-			</div>
-			<div class="itemCard">
-				<img alt="lamp" src="<c:url value="/image/lamp.jpeg"/>">
-				<p>Lamp</p>
-				<p>$50</p>
-				<button class="yellowButton">Save</button>
-			</div>
-			<div class="itemCard">
-				<img alt="couch" src="<c:url value="/image/couch.jpeg"/>">
-				<p>Couch</p>
-				<p>$300</p>
-				<button class="yellowButton">Save</button>
-			</div>
-			<div class="itemCard">
-				<img alt="chair" src="<c:url value="/image/chair.jpeg"/>">
-				<p>Chair</p>
-				<p>$500</p>
-				<button class="yellowButton">Save</button>
-			</div>
+			<c:forEach var="products" items="${productList }">
+				<div class="itemCard">
+					<a href="/sidewalk-sale/details"><img src="${products.photosImagePath }"></a>
+					<p>NAME: <c:out value="${products.name }"/></p>
+					<p>PRICE: <c:out value="${products.price }"/></p>
+					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
+					<button type="submit" class="yellowButton">SAVE</button>
+				</div>
+			</c:forEach>
 		</div>
 		
     </div>

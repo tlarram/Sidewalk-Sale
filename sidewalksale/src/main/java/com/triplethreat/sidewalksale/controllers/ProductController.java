@@ -48,7 +48,7 @@ public class ProductController {
 	        
 	        Product savedProduct = productRepo.save(product);
 	        
-	        String uploadDir = "user-photos/" + savedProduct.getId();
+	        String uploadDir = "src/main/resources/static/image/user-photos/" + savedProduct.getId();
 	        
 	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 	        

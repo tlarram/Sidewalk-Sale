@@ -48,7 +48,7 @@ public class Product {
     public String getPhotosImagePath() {
         if (photos == null || id == null) return null;
          
-        return "/user-photos/" + id + "/" + photos;
+        return "/image/user-photos/" + id + "/" + photos;
     }
 	
 	@Column(updatable=false)
