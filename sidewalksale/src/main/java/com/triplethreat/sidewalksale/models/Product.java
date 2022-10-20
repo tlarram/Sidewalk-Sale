@@ -40,6 +40,18 @@ public class Product {
 	@Min(value = 0, message="Price is required")
 	private Double price;
 	
+	@NotNull
+	@Size(min=3, max=200, message="Location is required")
+	private String location;
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	//for photos
 	@Column(nullable = true, length = 64)
     private String photos;
