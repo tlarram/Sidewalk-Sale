@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.triplethreat.sidewalksale.models.Category;
 import com.triplethreat.sidewalksale.models.Contact;
 import com.triplethreat.sidewalksale.models.Product;
+import com.triplethreat.sidewalksale.models.User;
 import com.triplethreat.sidewalksale.repositories.ProductRepository;
 import com.triplethreat.sidewalksale.repositories.UserRepository;
 import com.triplethreat.sidewalksale.services.CategoryService;
@@ -71,4 +72,16 @@ public class HomeController {
 		model.addAttribute("products", products);
 		return "soldByUser.jsp";
 	}
+	@PutMapping("/saved/{productId}")
+	public String saveProduct(@PathVariable("productId" ) Long productId,Model model,Principal principal ) {
+		String email = principal.getName();
+        model.addAttribute("currentUser", userServ.findByEmail(email));
+        User thisUser=userServ.findByEmail(email);
+        Product thisProduct= productServ.findById(productId);
+        thisUser.getSavedProducts().add(thisProduct);
+        thisProduct.getSavedBy().add(thisUser);
+        userRepo.save(thisUser);
+        productRepo.save(thisProduct);
+		return "redirect:/";
+}
 }
