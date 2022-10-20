@@ -72,6 +72,7 @@ public class HomeController {
 		model.addAttribute("products", products);
 		return "soldByUser.jsp";
 	}
+	
 	@PutMapping("/saved/{productId}")
 	public String saveProduct(@PathVariable("productId" ) Long productId,Model model,Principal principal ) {
 		String email = principal.getName();
