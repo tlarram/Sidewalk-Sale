@@ -12,12 +12,18 @@
 .detailCard {
 	display: flex;
 	width: 50%;
-	padding-right: 30px;
+	padding-right: 10px;
 }
 
 .detailImg {
 	height: 300px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	margin-right: 40px;
+}
+
+.detailImg:hover {
+	transform: scale(1.2);
+	transition: 0.2s;
 }
 
 .detailBody {
@@ -28,7 +34,8 @@
 /* card on the right */
 .sellerCard {
 	width: 50%;
-	padding-left: 30px;
+	padding-left: 40px;
+	margin-left: 70px;
 	text-align: left;
 	border: 2px solid #FFCE2B;
 	border-top-style: hidden;
@@ -40,9 +47,10 @@ input {
 	width: 250px;
 }
 
-.detailBody p:nth-of-type(4) {
+.detailBody p:nth-of-type(3) {
 	height: 150px;
 	overflow: scroll;
 	background-color: rgb(201, 199, 197);
 	border-radius: 5px;
+	padding: 5px;
 }

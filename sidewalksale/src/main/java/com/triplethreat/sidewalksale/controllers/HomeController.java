@@ -8,12 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.triplethreat.sidewalksale.models.Category;
+import com.triplethreat.sidewalksale.models.Contact;
 import com.triplethreat.sidewalksale.models.Product;
 import com.triplethreat.sidewalksale.models.User;
 import com.triplethreat.sidewalksale.repositories.ProductRepository;
@@ -31,9 +32,10 @@ public class HomeController {
 	@Autowired
 	private CategoryService categoryServ;
 	@Autowired
-	private UserRepository userRepo;
-	@Autowired
 	private ProductRepository productRepo;
+	@Autowired
+	private UserRepository userRepo;
+
 	
 	
 	@GetMapping(value={"/", "/sidewalk-sale"})
@@ -90,4 +92,5 @@ public class HomeController {
         productRepo.save(thisProduct);
         return "redirect:/";
 	}
+
 }

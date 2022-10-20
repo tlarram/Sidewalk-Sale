@@ -23,21 +23,16 @@
 	<div class="container">
 		<div class="body">
 			<div class="detailCard">
-				<img class="detailImg" alt="couch" src="<c:url value="/image/couch.jpeg"/>">
+				<img class="detailImg" alt="couch" src="<c:url value="${product.photosImagePath }"/>">
 				<div class="detailBody">
-					<p>Couch</p>
-					<p>Price: $300</p>
-					<p>Condition: </p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-					consequat.</p>
+					<p>NAME: <c:out value="${product.name }"/></p>
+					<p>PRICE: <c:out value="${product.price }"/></p>
+					<p><c:out value="${product.description }"/></p>
+					<button type="submit" class="yellowButton">SAVE</button>
 				</div>
 			</div>
 			<div class="sellerCard">
-				<p>Sold By: </p>
-				<p>Location</p>
-				<p>Seller Rating</p>
+				<p>Sold By: <c:out value="${product.seller.firstName }"/> <c:out value="${product.seller.lastName }"/> </p>
 				<h2>Contact The seller</h2>
  	
  	<form:form method="POST" modelAttribute="contact" action="/sidewalk-sale/contact" >

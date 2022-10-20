@@ -26,21 +26,26 @@
 
 	    	  
 	    </div>
-	    <c:if test = "${currentUser.id == user.product.id   }">
+	<div class="items">
 	  <c:forEach var="product" items="${savedProducts}"> 
-		<div class="items">
+	  <c:forEach var="savedBy" items="${product.savedBy}">
+	     <c:if test = "${currentUser.id == savedBy.id  }">
+	     
+		
 			<div class="itemCard">
-				<a href="/sidewalk-sale/details">
-					<img alt="couch" src="<c:url value="/image/couch.jpeg"/>">
+				<a href="/sidewalk-sale/details/${product.id }">
+					<img alt="${product.name }" src="<c:url value="${product.photos}"/>">
 				</a>
-				<p>product.name</p>
-				<p>product.price</p>
+				<p><c:out value="${product.name }"></c:out></p>
+				<p><c:out value="${product.price }"></c:out></p>
 				<button class="yellowButton">Save</button>
 			</div>
 			
-		</div>
-		</c:forEach>
+		
 		</c:if>
+		</c:forEach>
+		</c:forEach>
+		 </div>
     </div>
     <script src
    ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
