@@ -67,7 +67,7 @@
   
 <script type="text/javascript">
     $(document).ready (function () {
-        $.getJSON( "https://api.ipify.org?format=json", 
+        $.get( "https://api.ipify.org?format=json", 
           function( data ) {
              console.log(data);
              $("#ip").val(data.ip) ;

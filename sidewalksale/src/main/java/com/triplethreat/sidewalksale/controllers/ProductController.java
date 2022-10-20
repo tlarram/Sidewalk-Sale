@@ -2,6 +2,7 @@ package com.triplethreat.sidewalksale.controllers;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class ProductController {
 	@Autowired 
 	ProductRepository productRepo;
 	
+	
 	//ADD AN ITEM
 	//show the form
 	@GetMapping("/sidewalk-sale/add-item")
@@ -39,7 +41,7 @@ public class ProductController {
 	@PostMapping("/sidewalk-sale/add-item")
 	public String processProduct(
 			@Valid @ModelAttribute("newProduct") Product product,
-			BindingResult result, @RequestParam("image") MultipartFile multipartFile, Model model) throws IOException{
+			BindingResult result, @RequestParam("image") MultipartFile multipartFile, Model model, HttpSession session) throws IOException{
 //		if(result.hasErrors()) {
 //			return "addItem.jsp";
 //		} else {
@@ -51,9 +53,12 @@ public class ProductController {
 	        String uploadDir = "src/main/resources/static/image/user-photos/" + savedProduct.getId();
 	        
 	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-	        
+	        String productLocation = (String) session.getAttribute("userLocation");
+	        product.setLocation(productLocation);
 			productService.addProduct(product);
 			return "redirect:/sidewalk-sale";
 //		}
 	}
+	
+
 }
