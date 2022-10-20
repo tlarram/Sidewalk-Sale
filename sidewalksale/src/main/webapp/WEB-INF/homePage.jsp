@@ -25,8 +25,8 @@
 	    	<h3>Welcome, <c:out value="${currentUser.firstName}"></c:out></h3>
 			<c:if test="${userLocation == null}">
 				<div>
-					<p><strong>Sidewalk Sale</strong> requires location to show you items listed in your area.
-					Please click Accept to continue. Thank you</p>
+					<h3><strong>Sidewalk Sale</strong> requires location to show you items listed in your area.
+					Please click Accept to continue. Thank you</h3>
 					<div class="accept">
 						<form id="ipForm" action="/location" method="POST">
 			        		<input type="hidden" name = "ipAddress" id = "ip"/>
@@ -34,13 +34,13 @@
 			        		<button type="submit" class="yellowButton">Accept</button>
 			        		<!-- <input type="submit" name="submit" class="yellowButton" value="Accept" />  -->
 			    		</form>
+		    		</div>
+				</div>
+			</c:if>
 				    	<form id="logoutForm" method="POST" action="/logout">
 			       			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			        		<button type="submit">Logout</button>
 			    		</form>
-		    		</div>
-				</div>
-			</c:if>
 	    </div>
 	    
 		<div class="items">
@@ -50,12 +50,22 @@
 					<p>NAME: <c:out value="${products.name }"/></p>
 					<p>PRICE: <c:out value="${products.price }"/></p>
 					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
-					<form action="/saved/${products.id }" method="post">
-					<input type="hidden" name="_method" value="put">
-					<input type="hidden" name="savedProducts" value="products">
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<button type="submit" class="yellowButton">SAVE</button>
-					</form>
+					
+						<form action="/saved/${products.id }" method="post" id="saveForm">
+						<input type="hidden" name="_method" value="put">
+						<input type="hidden" name="savedProducts" value="products">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						<c:choose>
+						<c:when test="${!products.savedBy.contains(currentUser)}"> 
+							<button type="submit" class="yellowButton" id="saveBtn">SAVE</button>
+							<p> this is the when</p>
+						</c:when>
+						<c:otherwise>
+							<p> this is the otherwise </p>
+							
+						</c:otherwise>
+						</c:choose>
+							</form>
 				</div>
 			</c:forEach>
 		</div>

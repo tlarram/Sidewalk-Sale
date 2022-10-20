@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.triplethreat.sidewalksale.models.Category;
 import com.triplethreat.sidewalksale.models.Contact;
 import com.triplethreat.sidewalksale.models.GeoIP;
+
 import com.triplethreat.sidewalksale.models.Product;
 import com.triplethreat.sidewalksale.models.User;
 import com.triplethreat.sidewalksale.repositories.ProductRepository;
@@ -86,8 +88,8 @@ public class HomeController {
 		return"redirect:soldbyme";
 	}
 	//For user to add item to their saved list
-	@PutMapping("/saved/{productId}")
-    public String saveProduct(@PathVariable("productId" ) Long productId,Model model,Principal principal ) {
+	@PutMapping("/saved/{id}")
+    public String saveProduct(@PathVariable("id" ) Long productId,Model model,Principal principal ) {
         String email = principal.getName();
         model.addAttribute("currentUser", userServ.findByEmail(email));
         User thisUser=userServ.findByEmail(email);
@@ -98,6 +100,20 @@ public class HomeController {
         productRepo.save(thisProduct);
         return "redirect:/";
 	}
+
+	@PutMapping("/unsave/{id}")
+    public String unsaveProduct(@PathVariable("id" ) Long productId,Model model,Principal principal ) {
+        String email = principal.getName();
+        model.addAttribute("currentUser", userServ.findByEmail(email));
+        User thisUser=userServ.findByEmail(email);
+        Product thisProduct= productServ.findById(productId);
+        thisUser.getSavedProducts().remove(thisProduct);
+        thisProduct.getSavedBy().remove(thisUser);
+        userRepo.save(thisUser);
+        productRepo.save(thisProduct);
+        return "redirect:/sidewalk-sale/saved-listings";
+	}
+
 	//DETAILS
 		@GetMapping("/sidewalk-sale/details/{id}")
 		public String details(@PathVariable("id") Long id, Model model,
@@ -110,6 +126,5 @@ public class HomeController {
 		}
 		
 		
-
 
 }

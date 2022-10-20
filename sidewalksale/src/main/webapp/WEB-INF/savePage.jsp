@@ -38,7 +38,20 @@
 				</a>
 				<p><c:out value="${product.name }"></c:out></p>
 				<p><c:out value="${product.price }"></c:out></p>
-				<button class="yellowButton">Save</button>
+				<form action="/unsave/${product.id }" method="post" id="saveForm">
+						<input type="hidden" name="_method" value="put">
+						<input type="hidden" name="savedProducts" value="products">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				<c:choose>
+						<c:when test="${product.savedBy.contains(currentUser)}"> 
+							<button type="submit" class="yellowButton" id="saveBtn">UNSAVE</button>
+							<p> this is the when</p>
+						</c:when>
+						<c:otherwise>
+							<p> this is the otherwise </p>
+						</c:otherwise>
+						</c:choose>
+							</form>
 			</div>
 			
 		
