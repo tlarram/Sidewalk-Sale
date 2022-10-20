@@ -59,8 +59,8 @@ public class User {
 	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "products_savedBy", 
-        joinColumns = @JoinColumn(name = "product_id"), 
-        inverseJoinColumns = @JoinColumn(name = "user_id")
+        joinColumns = @JoinColumn(name = "user_id"), 
+        inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<Product> savedProducts;
     

@@ -21,7 +21,7 @@
 <div class="items">
 	<c:forEach var="oneProduct" items="${products }">
 		<c:choose>
-			<c:when test="${oneProduct.seller.id == currentUser.id }">
+			<c:when test="${oneProduct.seller.contains(currentUser)}">
 			<div class="itemCard">
 				<a href="/sidewalk-sale/details/${oneProduct.id }">
 					<img alt="${oneProduct.name }" src="<c:url value="${oneProduct.photos}"/>">
