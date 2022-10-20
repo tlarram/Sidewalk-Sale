@@ -12,7 +12,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.triplethreat.sidewalksale.models.Category;
 import com.triplethreat.sidewalksale.models.Contact;
@@ -36,6 +35,7 @@ public class HomeController {
 	private ProductRepository productRepo;
 	@Autowired
 	private UserRepository userRepo;
+
 	
 	
 	@GetMapping(value={"/", "/sidewalk-sale"})
@@ -72,9 +72,17 @@ public class HomeController {
 		model.addAttribute("products", products);
 		return "soldByUser.jsp";
 	}
+	//Delete item listed by the seller
+	@DeleteMapping("/deletelisteditem/{id}")
+	public String deleteListedItem(@PathVariable("id")Long id) {
+		Product thisProd = productServ.findById(id);
+		productServ.deleteProduct(thisProd);
+		return"redirect:soldbyme";
+	}
+	//For user to add item to their saved list
 	@PutMapping("/saved/{productId}")
-	public String saveProduct(@PathVariable("productId" ) Long productId,Model model,Principal principal ) {
-		String email = principal.getName();
+    public String saveProduct(@PathVariable("productId" ) Long productId,Model model,Principal principal ) {
+        String email = principal.getName();
         model.addAttribute("currentUser", userServ.findByEmail(email));
         User thisUser=userServ.findByEmail(email);
         Product thisProduct= productServ.findById(productId);
@@ -82,6 +90,7 @@ public class HomeController {
         thisProduct.getSavedBy().add(thisUser);
         userRepo.save(thisUser);
         productRepo.save(thisProduct);
-		return "redirect:/";
-}
+        return "redirect:/";
+	}
+
 }
