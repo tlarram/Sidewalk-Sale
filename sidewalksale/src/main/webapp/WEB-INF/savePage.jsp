@@ -38,7 +38,7 @@
 				</a>
 				<h3><c:out value="${product.name }"></c:out></h3>
 				<p><c:out value="${product.price }"></c:out></p>
-				<p>Location: <c:out value="${products.location }"/></p>
+				<p>Location: <c:out value="${product.location }"/></p>
 				<form action="/unsave/${product.id }" method="post" id="saveForm">
 						<input type="hidden" name="_method" value="put">
 						<input type="hidden" name="savedProducts" value="products">
