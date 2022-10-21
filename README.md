@@ -27,19 +27,23 @@ Feel free to clone the project to implement your own digitial sidewalk sale.
 Clone the project
 
 <h3>Geo Location</h3>
-SAM - add a snippet of what to do to download the geolite and where to put it in the geoIP service
+SAM - add a snippet of what to do to download the geolite and where to put it in the geoIP servicev <br>
 -- using geoLite requires you to run on Java 11
 
 <h3>JavaMailSender</h3>
 This is only compatiable with GMAIL
 
-In applicaiton.properties you'll need to add this snippet:
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username= << YOUR GMAIL ADDRESS >>
-spring.mail.password= << YOUR GMAIL PASSWORD >>
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
+In applicaiton.properties you'll need to add this snippet: <br>
+
+spring.mail.host=smtp.gmail.com <br>
+spring.mail.port=587 <br>
+spring.mail.username= << YOUR GMAIL ADDRESS >> <br>
+spring.mail.password= << YOUR GMAIL PASSWORD >> <br>
+spring.mail.properties.mail.smtp.auth=true <br>
+spring.mail.properties.mail.smtp.starttls.enable=true <br>
+
+You may want to generate an app password from Google: <br>
+<a href="https://support.google.com/mail/answer/185833?hl=en-GB">Google App Password</a>
 
 <h3>Spring boot file upload</h3>
 Add a static folder called image
@@ -58,15 +62,14 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-<h3>Collaborators</h3>
-<a href="https://github.com/tlarram">Timothy Larramore</a> 
-<a href="https://github.com/cdejonge89">Lee DeJonge</a>
-Sam Slater -- need your github link
+<h3>Collaborators</h3> <br>
+<a href="https://github.com/tlarram">Timothy Larramore</a> <br>
+<a href="https://github.com/cdejonge89">Lee DeJonge</a> <br>
+Sam Slater -- need your github link<br>
 
 
 javaMailSender resources:
 <a href="https://www.baeldung.com/spring-email">Spring Email</a>
-
 Image upload 
 <a href="https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial">Spring Boot File Upload</a>
 
@@ -102,9 +105,9 @@ SOFTWARE.
 
 ## Features
 
-Spring Security
-javaMailSender
-Geolocation
-File upload
+- Spring Security
+- javaMailSender
+- Geolocation
+- Spring BootF ile upload
 
-A
+
