@@ -41,6 +41,11 @@ spring.mail.password= << YOUR GMAIL PASSWORD >>
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 
+<h3>Spring boot file upload</h3>
+Add a static folder called image
+Each item you create will store and image, and your model will generate a string with the correct file path to that image
+You'll see the correct file path printed in the console 
+
 ## Usage
 
 Provide instructions and examples for use. Include screenshots as needed.
