@@ -24,7 +24,7 @@
 			<c:when test="${oneProduct.seller.id == currentUser.id}">
 			<div class="itemCard">
 				<a href="/sidewalk-sale/details/${oneProduct.id }">
-					<img alt="${oneProduct.name }" src="<c:url value="${oneProduct.photos}"/>">
+					<img alt="${oneProduct.name }" src="<c:url value="${oneProduct.photosImagePath}"/>">
 				</a>
 				<h3> <c:out value="${oneProduct.name}"/> </h3>
 				<p><c:out value="${oneProduct.price}"/></p>

@@ -33,6 +33,7 @@
 			</div>
 			<div class="sellerCard">
 				<p>Sold By: <c:out value="${product.seller.firstName }"/> <c:out value="${product.seller.lastName }"/> </p>
+				<p>Location: <c:out value="${prducts.seller.location }"/></p> <!-- ADD THE LOCATION HERE PLEASE -->
 				<h2>Contact The seller</h2>
  	
  	<form:form method="POST" modelAttribute="contact" action="/sidewalk-sale/contact" >

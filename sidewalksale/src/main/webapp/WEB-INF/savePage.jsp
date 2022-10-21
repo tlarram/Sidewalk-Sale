@@ -34,7 +34,7 @@
 		
 			<div class="itemCard">
 				<a href="/sidewalk-sale/details/${product.id }">
-					<img alt="${product.name }" src="<c:url value="${product.photos}"/>">
+					<img alt="${product.name }" src="<c:url value="${product.photosImagePath}"/>">
 				</a>
 				<h3><c:out value="${product.name }"></c:out></h3>
 				<p><c:out value="${product.price }"></c:out></p>
@@ -46,10 +46,10 @@
 				<c:choose>
 						<c:when test="${product.savedBy.contains(currentUser)}"> 
 							<button type="submit" class="yellowButton" id="saveBtn">UNSAVE</button>
-							<p> this is the when</p>
+							
 						</c:when>
 						<c:otherwise>
-							<p> this is the otherwise </p>
+							
 						</c:otherwise>
 						</c:choose>
 							</form>

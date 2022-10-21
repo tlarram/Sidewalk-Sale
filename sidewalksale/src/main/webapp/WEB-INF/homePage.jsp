@@ -32,7 +32,6 @@
 			        		<input type="hidden" name = "ipAddress" id = "ip"/>
 			        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			        		<button type="submit" class="yellowButton">Accept</button>
-			        		<!-- <input type="submit" name="submit" class="yellowButton" value="Accept" />  -->
 			    		</form>
 		    		</div>
 				</div>
@@ -60,10 +59,9 @@
 						<c:choose>
 						<c:when test="${!products.savedBy.contains(currentUser)}"> 
 							<button type="submit" class="yellowButton" id="saveBtn">SAVE</button>
-							<p> this is the when</p>
 						</c:when>
 						<c:otherwise>
-							<p> this is the otherwise </p>
+							<p> You saved this item </p>
 							
 						</c:otherwise>
 						</c:choose>
