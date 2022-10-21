@@ -80,7 +80,7 @@ public class Product {
 	 
 	 @ManyToMany(fetch = FetchType.LAZY)
 	    @JoinTable(
-	        name = "products_savedBy", //we need to change this table name?
+	        name = "products_savedBy", 
 	        joinColumns = @JoinColumn(name = "product_id"), 
 	        inverseJoinColumns = @JoinColumn(name = "user_id")
 	    )
@@ -91,7 +91,7 @@ public class Product {
 		private User seller;
 	    
 	    
-public List<Category> getCategories() {
+	    public List<Category> getCategories() {
 			return categories;
 		}
 

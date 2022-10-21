@@ -41,15 +41,17 @@
 			       			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			        		<button type="submit">Logout</button>
 			    		</form>
-	    </div>
-	    
+	 </div>
+		<div><h2> These items are listed in <c:out value="${userLocation}"/></h2></div>
 		<div class="items">
 			<c:forEach var="products" items="${productList }">
+	   		<c:if test="${products.location == userLocation }">
 				<div class="itemCard">
 					<a href="/sidewalk-sale/details/${products.id }"><img src="${products.photosImagePath }"></a>
-					<p>NAME: <c:out value="${products.name }"/></p>
+					<h3> <c:out value="${products.name }"/></h3>
 					<p>PRICE: <c:out value="${products.price }"/></p>
 					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
+					
 					
 						<form action="/saved/${products.id }" method="post" id="saveForm">
 						<input type="hidden" name="_method" value="put">
@@ -67,13 +69,43 @@
 						</c:choose>
 							</form>
 				</div>
+			</c:if>
 			</c:forEach>
 		</div>
-		
+		<div><h2> These items are listed outside of your city</h2></div>
+		<div class="items">
+			<c:forEach var="products" items="${productList }">
+	   		<c:if test="${products.location != userLocation }">
+				<div class="itemCard">
+					<a href="/sidewalk-sale/details/${products.id }"><img src="${products.photosImagePath }"></a>
+					<h3> <c:out value="${products.name }"/></h3>
+					<p>PRICE: <c:out value="${products.price }"/></p>
+					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
+					<p>LOCATION: <c:out value="${products.location }"/></p>
+						<form action="/saved/${products.id }" method="post" id="saveForm">
+						<input type="hidden" name="_method" value="put">
+						<input type="hidden" name="savedProducts" value="products">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						<c:choose>
+						<c:when test="${!products.savedBy.contains(currentUser)}"> 
+							<button type="submit" class="yellowButton" id="saveBtn">SAVE</button>
+							<p> this is the when</p>
+						</c:when>
+						<c:otherwise>
+							<p> this is the otherwise </p>
+							
+						</c:otherwise>
+						</c:choose>
+							</form>
+				</div>
+			</c:if>
+			</c:forEach>
+		</div>
     </div>
-    <script src
-   ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-</script>
+    
+    
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+	</script>
   
 <script type="text/javascript">
     $(document).ready (function () {

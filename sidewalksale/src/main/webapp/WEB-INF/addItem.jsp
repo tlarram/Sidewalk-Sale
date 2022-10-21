@@ -40,7 +40,7 @@
 			</div>
 				<input type="file" name="image"  accept="image/png, image/jpeg"/>
 			<div>
-				<form:hidden path="seller" value="${userId }"/>
+				<form:hidden path="seller" value="${currentUser.id }"/>
 				<form:hidden path="location" value="${userLocation }"/>
 				<button type="submit" class="yellowButton">Submit</button>
 			</div>

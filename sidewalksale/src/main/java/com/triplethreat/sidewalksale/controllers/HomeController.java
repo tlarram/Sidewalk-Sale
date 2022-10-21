@@ -85,7 +85,7 @@ public class HomeController {
 	public String deleteListedItem(@PathVariable("id")Long id) {
 		Product thisProd = productServ.findById(id);
 		productServ.deleteProduct(thisProd);
-		return"redirect:soldbyme";
+		return "redirect:/soldbyme";
 	}
 	//For user to add item to their saved list
 	@PutMapping("/saved/{id}")

@@ -17,7 +17,7 @@
 		<a href="/sidewalk-sale/add-item"><button>ADD LISTING</button></a>
 		<h2 style="font-size: 35px">Sidewalk.<span class="dandelion"><em>Sale</em></span></h2>
 		<a href="/sidewalk-sale/saved-listings"><button>SAVED LISTINGS</button></a>
-		<a href="/login"><button>ACCOUNT</button></a>
+		<a href="/soldbyme"><button>MY LISTINGS</button></a>
 	</div>
 	
 	<div class="container">
@@ -36,8 +36,9 @@
 				<a href="/sidewalk-sale/details/${product.id }">
 					<img alt="${product.name }" src="<c:url value="${product.photos}"/>">
 				</a>
-				<p><c:out value="${product.name }"></c:out></p>
+				<h3><c:out value="${product.name }"></c:out></h3>
 				<p><c:out value="${product.price }"></c:out></p>
+				<p>Location: <c:out value="${products.location }"/></p>
 				<form action="/unsave/${product.id }" method="post" id="saveForm">
 						<input type="hidden" name="_method" value="put">
 						<input type="hidden" name="savedProducts" value="products">
