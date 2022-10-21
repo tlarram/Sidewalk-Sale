@@ -61,7 +61,7 @@
 							<button type="submit" class="yellowButton" id="saveBtn">SAVE</button>
 						</c:when>
 						<c:otherwise>
-							<p> You saved this item </p>
+							<p style="color:grey"> You saved this item </p>
 							
 						</c:otherwise>
 						</c:choose>
