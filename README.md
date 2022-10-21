@@ -65,7 +65,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 <h3>Collaborators</h3> <br>
 <a href="https://github.com/tlarram">Timothy Larramore</a> <br>
 <a href="https://github.com/cdejonge89">Lee DeJonge</a> <br>
-Sam Slater -- need your github link<br>
+<a href="https://github.com/S-Slater">Sam Slater -- need your github link</a> <br>
 
 
 javaMailSender resources:
