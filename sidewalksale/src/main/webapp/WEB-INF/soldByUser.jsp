@@ -21,15 +21,16 @@
 <div class="items">
 	<c:forEach var="oneProduct" items="${products }">
 		<c:choose>
-			<c:when test="${oneProduct.seller.contains(currentUser)}">
+			<c:when test="${oneProduct.seller.id == currentUser.id}">
 			<div class="itemCard">
 				<a href="/sidewalk-sale/details/${oneProduct.id }">
 					<img alt="${oneProduct.name }" src="<c:url value="${oneProduct.photos}"/>">
 				</a>
-				<p> <c:out value="${oneProduct.name}"/> </p>
+				<h3> <c:out value="${oneProduct.name}"/> </h3>
 				<p><c:out value="${oneProduct.price}"/></p>
 				<form action="/deletelisteditem/${oneProduct.id}" method="post">
     				<input type="hidden" name="_method" value="delete">
+    				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     				<input type="submit" value="Delete">
 				</form>
 			</div>

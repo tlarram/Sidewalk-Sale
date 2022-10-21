@@ -1,6 +1,7 @@
 package com.triplethreat.sidewalksale.controllers;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ import com.triplethreat.sidewalksale.config.FileUploadUtil;
 import com.triplethreat.sidewalksale.models.Product;
 import com.triplethreat.sidewalksale.repositories.ProductRepository;
 import com.triplethreat.sidewalksale.services.ProductService;
+import com.triplethreat.sidewalksale.services.UserService;
 
 @Controller
 public class ProductController {
@@ -28,12 +30,15 @@ public class ProductController {
 	
 	@Autowired 
 	ProductRepository productRepo;
-	
+	@Autowired
+	private UserService userServ;
 	
 	//ADD AN ITEM
 	//show the form
 	@GetMapping("/sidewalk-sale/add-item")
-	public String addItem(@ModelAttribute("newProduct") Product newProduct) {
+	public String addItem(@ModelAttribute("newProduct") Product newProduct, Model model, HttpSession session, Principal principal) {
+		String email = principal.getName();
+        model.addAttribute("currentUser", userServ.findByEmail(email));
 		return "addItem.jsp";
 		
 	}

@@ -25,10 +25,10 @@
 			<div class="detailCard">
 				<img class="detailImg" alt="couch" src="<c:url value="${product.photosImagePath }"/>">
 				<div class="detailBody">
-					<p>NAME: <c:out value="${product.name }"/></p>
+					<h3> <c:out value="${product.name }"/></h3>
 					<p>PRICE: <c:out value="${product.price }"/></p>
 					<p><c:out value="${product.description }"/></p>
-					<button type="submit" class="yellowButton">SAVE</button>
+					<p>LOCATION: <c:out value="${product.location }"/></p>
 				</div>
 			</div>
 			<div class="sellerCard">
