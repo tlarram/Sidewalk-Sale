@@ -79,7 +79,6 @@
 					<h3> <c:out value="${products.name }"/></h3>
 					<p>PRICE: <c:out value="${products.price }"/></p>
 					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
-					<p>LOCATION: <c:out value="${products.location }"/></p>
 						<form action="/saved/${products.id }" method="post" id="saveForm">
 						<input type="hidden" name="_method" value="put">
 						<input type="hidden" name="savedProducts" value="products">
@@ -87,10 +86,10 @@
 						<c:choose>
 						<c:when test="${!products.savedBy.contains(currentUser)}"> 
 							<button type="submit" class="yellowButton" id="saveBtn">SAVE</button>
-							<p> this is the when</p>
+							
 						</c:when>
 						<c:otherwise>
-							<p> this is the otherwise </p>
+							<p style="color:grey"> you saved this item </p>
 							
 						</c:otherwise>
 						</c:choose>

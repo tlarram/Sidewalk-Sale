@@ -47,7 +47,7 @@ input {
 	width: 250px;
 }
 
-.detailBody p:nth-of-type(3) {
+.detailBody p:nth-of-type(2) {
 	height: 150px;
 	overflow: scroll;
 	background-color: rgb(201, 199, 197);

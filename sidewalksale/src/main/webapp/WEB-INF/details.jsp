@@ -28,7 +28,6 @@
 					<h3> <c:out value="${product.name }"/></h3>
 					<p>PRICE: <c:out value="${product.price }"/></p>
 					<p><c:out value="${product.description }"/></p>
-					<p>LOCATION: <c:out value="${product.location }"/></p>
 				</div>
 			</div>
 			<div class="sellerCard">
