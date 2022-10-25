@@ -100,7 +100,7 @@
 							
 						</c:when>
 						<c:otherwise>
-							<p style="color:grey"> you saved this item </p>
+							<p style="color:grey"> You saved this item </p>
 							
 						</c:otherwise>
 						</c:choose>
