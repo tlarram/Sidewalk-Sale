@@ -22,9 +22,11 @@
 	
 	<div class="container">
     	<div class="description">
-	    	<h3>Welcome, <c:out value="${currentUser.firstName}"></c:out></h3>
-
-	    	  
+	    	<h3>Saved Listings</h3>
+	    	<form id="logoutForm" method="POST" action="/logout">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				<button type="submit">Logout</button>
+			</form>
 	    </div>
 	<div class="items">
 	  <c:forEach var="product" items="${savedProducts}"> 
@@ -37,8 +39,8 @@
 					<img alt="${product.name }" src="<c:url value="${product.photosImagePath}"/>">
 				</a>
 				<h3><c:out value="${product.name }"></c:out></h3>
-				<p><c:out value="${product.price }"></c:out></p>
-				<p><c:out value="${product.description }"></c:out></p>
+				<p>PRICE: $<c:out value="${product.price }"></c:out></p>
+				<p>DESCRIPTION: <c:out value="${product.description }"></c:out></p>
 				<form action="/unsave/${product.id }" method="post" id="saveForm">
 						<input type="hidden" name="_method" value="put">
 						<input type="hidden" name="savedProducts" value="products">

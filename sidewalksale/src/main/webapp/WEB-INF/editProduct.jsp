@@ -7,8 +7,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Items Sold by the User</title>
+<title>Edit Item</title>
 <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="/css/register.css">
 </head>
 <body>
 	<div class="header">
@@ -21,36 +22,40 @@
 	
 	<div class="container">
 		<div class="description">
-	    	<h3>Your Listings</h3>
+	    	<h3>Edit your Item</h3>
 	   		<form id="logoutForm" method="POST" action="/logout">
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				<button type="submit">Logout</button>
 			</form>
 	    </div>
-	</div>
-		<div class="items">
-			<c:forEach var="oneProduct" items="${products }">
-				<c:choose>
-					<c:when test="${oneProduct.seller.id == currentUser.id}">
-					<div class="itemCard">
-						<a href="product/edit/${oneProduct.id }">EDIT</a>
-						<a href="/sidewalk-sale/details/${oneProduct.id }">
-							<img alt="${oneProduct.name }" src="<c:url value="${oneProduct.photosImagePath}"/>">
-						</a>
-						<h3> <c:out value="${oneProduct.name}"/> </h3>
-						<p>PRICE: $<c:out value="${oneProduct.price}"/></p>
-						<p>DESCRIPTION <c:out value="${oneProduct.description }"/></p>
-						<form action="/deletelisteditem/${oneProduct.id}" method="post">
-		    				<input type="hidden" name="_method" value="delete">
-		    				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-		    				<button type="submit" class="yellowButton">DELETE</button>
-						</form>
-
-					</div>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-		</div>
+	    
+	    <form:form method="POST" modelAttribute="product" action="/product/edit/${product.id }"  >
+ 				<input type="hidden" name="_method" value="put">
+ 				<div>
+ 					<form:label path="name">NAME</form:label>
+ 					<div>
+ 					<form:input path="name"/>
+ 					<form:errors path="name" style="color:DarkRed"/>
+ 					</div>
+ 				</div>
+ 				<div>
+ 					<form:label path="price">PRICE</form:label>
+ 					<div>
+ 					<form:input path="price"/>
+ 					<form:errors path="price" style="color:DarkRed"/>
+ 					</div>
+ 				</div>
+ 				<div>
+ 					<form:label path="description">DESCRIPTION</form:label>
+ 					<div>
+ 					<form:textarea path="description"/>
+ 					<form:errors path="description" style="color:DarkRed"/>
+ 					</div>
+ 				</div>
+ 				<!-- this line must exist as to not delete the user who created the book -->
+ 				<form:hidden path="seller"/>
+ 				<button type="submit" class="yellowButton">Submit</button>
+ 			</form:form>
 	</div>
 </body>
 </html>

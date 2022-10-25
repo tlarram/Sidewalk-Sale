@@ -22,26 +22,34 @@
 	
 	<div class="container">
     	<div class="description">
-	    	<h3>Welcome, <c:out value="${currentUser.firstName}"></c:out></h3>
-			<c:if test="${userLocation == null}">
-				<div>
-					<h3><strong>Sidewalk Sale</strong> requires location to show you items listed in your area.
-					Please click Accept to continue. Thank you</h3>
-					<div class="accept">
-						<form id="ipForm" action="/location" method="POST">
-			        		<input type="hidden" name = "ipAddress" id = "ip"/>
-			        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			        		<button type="submit" class="yellowButton">Accept</button>
-			    		</form>
-		    		</div>
-				</div>
-			</c:if>
-				    	<form id="logoutForm" method="POST" action="/logout">
-			       			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			        		<button type="submit">Logout</button>
-			    		</form>
+			<c:choose>
+				<c:when test="${userLocation == null}">
+					<div>
+						<p><strong>Sidewalk Sale</strong> requires location to show you items listed in your area.
+						Please click Accept to continue. Thank you</p>
+						<div class="accept">
+							<form id="ipForm" action="/location" method="POST">
+				        		<input type="hidden" name = "ipAddress" id = "ip"/>
+				        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				        		<button type="submit" class="yellowButton">Accept</button>
+				    		</form>
+			    		</div>
+					</div>
+					<form id="logoutForm" method="POST" action="/logout">
+					       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					       <button type="submit">Logout</button>
+					</form>
+				</c:when>
+				<c:otherwise>
+					<h2> These items are listed in <c:out value="${userLocation}"/></h2>
+					<form id="logoutForm" method="POST" action="/logout">
+					       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					       <button type="submit">Logout</button>
+					</form>
+				</c:otherwise>
+			</c:choose>    	
 	 </div>
-		<div><h2> These items are listed in <c:out value="${userLocation}"/></h2></div>
+		
 		<div class="items">
 			<c:forEach var="products" items="${productList }">
 	   		<c:if test="${products.location == userLocation }">
@@ -70,14 +78,17 @@
 			</c:if>
 			</c:forEach>
 		</div>
-		<div><h2> These items are listed outside of your city</h2></div>
+		<div class="description">
+			<h2> These items are listed outside of your city</h2>
+		</div>
 		<div class="items">
 			<c:forEach var="products" items="${productList }">
 	   		<c:if test="${products.location != userLocation }">
 				<div class="itemCard">
 					<a href="/sidewalk-sale/details/${products.id }"><img src="${products.photosImagePath }"></a>
 					<h3> <c:out value="${products.name }"/></h3>
-					<p>PRICE: <c:out value="${products.price }"/></p>
+					<p>LOCATION: <c:out value="${products.location }"/></p>
+					<p>PRICE: $<c:out value="${products.price }"/></p>
 					<p>DESCRIPTION: <c:out value="${products.description }"/></p>
 						<form action="/saved/${products.id }" method="post" id="saveForm">
 						<input type="hidden" name="_method" value="put">

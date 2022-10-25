@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Details page page</title>
+<title>Details page</title>
 <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
 <link rel="stylesheet" type="text/css" href="/css/details.css">
 </head>
@@ -26,13 +26,13 @@
 				<img class="detailImg" alt="couch" src="<c:url value="${product.photosImagePath }"/>">
 				<div class="detailBody">
 					<h3> <c:out value="${product.name }"/></h3>
-					<p>PRICE: <c:out value="${product.price }"/></p>
+					<p>PRICE: $<c:out value="${product.price }"/></p>
 					<p><c:out value="${product.description }"/></p>
 				</div>
 			</div>
 			<div class="sellerCard">
 				<p>Sold By: <c:out value="${product.seller.firstName }"/> <c:out value="${product.seller.lastName }"/> </p>
-				<p>Location: <c:out value="${prducts.seller.location }"/></p> <!-- ADD THE LOCATION HERE PLEASE -->
+				<p>Location: <c:out value="${product.location }"/></p> <!-- ADD THE LOCATION HERE PLEASE -->
 				<h2>Contact The seller</h2>
  	
  	<form:form method="POST" modelAttribute="contact" action="/sidewalk-sale/contact" >

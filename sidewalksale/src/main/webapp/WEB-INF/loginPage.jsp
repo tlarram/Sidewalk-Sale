@@ -17,15 +17,16 @@
 		<a href="//sidewalk-sale/saved-listings"><button>SAVED LISTINGS</button></a>
 		<a href="/soldbyme"><button>MY LISTINGS</button></a>
 	</div>
-    <c:if test="${logoutMessage != null}">
-        <c:out value="${logoutMessage}"></c:out>
-    </c:if>
-    <c:if test="${errorMessage != null}">
-        <c:out value="${errorMessage}"></c:out>
-    </c:if>
+    
     <div class="container">
     	<div class="login">
     		<h1>Login</h1>
+    		<c:if test="${logoutMessage != null}">
+		        <c:out value="${logoutMessage}"></c:out>
+		    </c:if>
+		    <c:if test="${errorMessage != null}">
+		        <c:out value="${errorMessage}"></c:out>
+		    </c:if>
 		    <form method="POST" action="/login">
 		        <p>
 		            <input type="text" id="email" name="email" placeholder="EMAIL"/>

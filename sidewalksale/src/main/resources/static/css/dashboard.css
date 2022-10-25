@@ -93,7 +93,6 @@ button:active {
 
 /* DESCRIPTION */
 .description {
-	text-align: center;
 	margin-top: 30px;
 	margin-left: 9%;
 	padding: 8px;
@@ -104,6 +103,9 @@ button:active {
 	padding: 5px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
 }
 
 .accept {
@@ -146,6 +148,10 @@ img {
 .itemCard:hover {
 	transform: scale(1.2);
 	transition: 0.2s;
+}
+
+.itemCard p {
+	text-align: left;
 }
 
 .yellowButton {
